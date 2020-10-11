@@ -1,4 +1,2 @@
-from .add import add
-
-from .query import Query
+from .query import doi
 

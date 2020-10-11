@@ -1,34 +1,23 @@
-
-'''
-class Query:
-    def __init__(self,DOI):
-        self.DOI = DOI
-
-
-
-    def getinf(self):
-        url = "https://api.crossref.org/works/" + self.DOI
-        r = requests.get(url)
-        return r.text
-'''
-
 import requests
-
 import json
 
-
-class Query:
-
-    def getinf(doi):
-        url = "https://api.crossref.org/works/" + doi
-        r = requests.get(url)
-        text_python = json.loads(r.text)
-        return text_python
+from .result import QueryResult
+from .errors import BadRequestError
 
 
+def doi(doi: str):
+    # using f-string
+    url = f"https://api.crossref.org/works/{doi}"
+    request = requests.get(url)
 
+    # you should handle error here, this is not enough
+    if request.status_code == 404:
+        raise BadRequestError("Get 404 from server.")
 
+    result = json.loads(request.text)
 
+    # the result is return as a class to store as many information as we can
+    meta = QueryResult()
+    meta.title = result['message']['title']
 
-
-
+    return meta

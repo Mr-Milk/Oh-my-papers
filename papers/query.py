@@ -19,5 +19,8 @@ def doi(doi: str):
     # the result is return as a class to store as many information as we can
     meta = QueryResult()
     meta.title = result['message']['title']
+    meta.author = result['message']['author']
+    meta.URL = result['message']['URL']
+    meta.references_count = result['message']['references-count']
 
     return meta

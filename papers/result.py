@@ -1,6 +1,7 @@
 class QueryResult:
 
     def __init__(self):
+        self.doi = None
         self.title = None
         self.author = None
         self.references_count = None
@@ -10,11 +11,12 @@ class QueryResult:
 class CitationResult:
 
     def __init__(self):
-        self.citation_apa = None
-        self.citation_harvard = None
-        self.citation_nature = None
-        self.citation_modern = None
-        self.citation_chicago = None
-        self.citation_vancouver = None
+        self.doi = None
+        self.apa = None
+        self.harvard = None
+        self.nature = None
+        self.modern = None
+        self.chicago = None
+        self.vancouver = None
 
 

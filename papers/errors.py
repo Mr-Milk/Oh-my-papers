@@ -1,5 +1,6 @@
-class BadRequestError(Exception):
+class RequestFailedError(Exception):
     pass
 
-class DoiFormatError(Exception):
+
+class DOIFormatIncorrect(Exception):
     pass

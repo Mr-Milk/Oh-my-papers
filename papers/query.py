@@ -1,36 +1,23 @@
-import requests
-import json
-import re
-
+from .base import doi_validator, request_parser
 from .result import QueryResult
-from .errors import BadRequestError
+
+# 这是一个常量，所以我们把他移出来，方便以后修改
+# 常量的变量名全大写字母
+CROSSREF_WORKS_URL = "https://api.crossref.org/works/"
 
 
 def doi(doi: str):
-    # using f-string
-    an = re.search('10[.][0-9]{4,}[^\s"/<>]*/[^\s"<>]+', doi)
+    doi = doi_validator(doi)
 
-    if not an:
-        raise BadRequestError("Wrong Doi format.")
+    url = f"{CROSSREF_WORKS_URL}{doi}"
 
-    url = f"https://api.crossref.org/works/{doi}"
-    request = requests.get(url)
+    result = request_parser(url)
 
-
-
-    # you should handle error here, this is not enough
-    if request.status_code == 404:
-        raise BadRequestError("Get 404 from server.")
-
-    result = json.loads(request.text)
-
-    # the result is return as a class to store as many information as we can
     meta = QueryResult()
+    meta.doi = doi
     meta.title = result['message']['title']
     meta.author = result['message']['author']
     meta.URL = result['message']['URL']
     meta.references_count = result['message']['references-count']
-
-
 
     return meta

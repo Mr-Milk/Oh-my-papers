@@ -14,11 +14,11 @@ def get_citation(doi: str):
     meta = CitationResult()
     meta.doi = doi
 
-    meta.apa = result['citations'][0]
-    meta.harvard = result['citations'][1]
-    meta.nature = result['citations'][2]
-    meta.modern = result['citations'][3]
-    meta.chicago = result['citations'][4]
-    meta.vancouver = result['citations'][5]
+    meta.apa = result['citations'][0]['citation']
+    meta.harvard = result['citations'][1]['citation']
+    meta.nature = result['citations'][2]['citation']
+    meta.modern = result['citations'][3]['citation']
+    meta.chicago = result['citations'][4]['citation']
+    meta.vancouver = result['citations'][5]['citation']
 
     return meta

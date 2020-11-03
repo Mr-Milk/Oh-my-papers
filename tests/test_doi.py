@@ -16,7 +16,7 @@ class Test_function(unittest.TestCase):
         self.assertEqual(doi(self.doi_example).title, ['Toward unique identifiers'])
         self.assertEqual(doi(self.doi_example).author, [{'given': 'N.', 'family': 'Paskin', 'sequence': 'first', 'affiliation': []}])
         self.assertEqual(doi(self.doi_example).references_count, 65)
-        self.assertEqual(doi(self.doi_example).doi, doi_example)
+        self.assertEqual(doi(self.doi_example).doi, self.doi_example)
         self.assertEqual(doi(self.doi_example).URL, 'http://dx.doi.org/10.1109/5.771073')
 
     def test_citation(self):

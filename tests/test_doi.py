@@ -1,7 +1,7 @@
 import unittest
 
-from papers.query import doi
-from papers.citation import get_citation
+from query import doi
+from citation import get_citation
 from papers.base import request_parser
 
 class Test_function(unittest.TestCase):

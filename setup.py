@@ -20,5 +20,5 @@ setup(name="oh-my-papers",
           "Intended Audience :: Science/Research",
       ],
       python_requires='>=3.6',
-      install_requires=[''],
+      install_requires=['requests'],
       )

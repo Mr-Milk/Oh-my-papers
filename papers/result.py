@@ -1,22 +1,26 @@
-class QueryResult:
+from dataclasses import dataclass
 
-    def __init__(self):
-        self.doi = None
-        self.title = None
-        self.author = None
-        self.references_count = None
-        self.URL = None
+from typing import Optional
 
 
-class CitationResult:
+@dataclass
+class Paper:
 
-    def __init__(self):
-        self.doi = None
-        self.apa = None
-        self.harvard = None
-        self.nature = None
-        self.modern = None
-        self.chicago = None
-        self.vancouver = None
+    doi: Optional[str] = None
+    title: Optional[str] = None
+    author: Optional[str] = None
+    references_count: Optional[int] = None
+    url: Optional[str] = None
+    raw: Optional[dict] = None
 
 
+@dataclass
+class Citation:
+
+    doi: Optional[str] = None
+    apa: Optional[str] = None
+    harvard: Optional[str] = None
+    nature: Optional[str] = None
+    modern: Optional[str] = None
+    chicago: Optional[str] = None
+    vancouver: Optional[str] = None

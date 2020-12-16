@@ -1,5 +1,5 @@
 from .base import doi_validator, request_parser
-from .result import QueryResult
+from .result import Paper
 
 # 这是一个常量，所以我们把他移出来，方便以后修改
 # 常量的变量名全大写字母
@@ -13,7 +13,8 @@ def doi(doi: str):
 
     result = request_parser(url)
 
-    meta = QueryResult()
+    meta = Paper()
+    meta.raw = result
     meta.doi = doi
     meta.title = result['message']['title']
     meta.author = result['message']['author']

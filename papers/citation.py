@@ -1,5 +1,5 @@
 from .base import doi_validator, request_parser
-from .result import CitationResult
+from .result import Citation
 
 CITATION_URL = "http://api.citeas.org/product/"
 
@@ -11,7 +11,7 @@ def get_citation(doi: str):
 
     result = request_parser(url)
 
-    meta = CitationResult()
+    meta = Citation()
     meta.doi = doi
 
     meta.apa = result['citations'][0]['citation']

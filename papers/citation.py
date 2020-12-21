@@ -1,5 +1,5 @@
 from .base import doi_validator, request_parser
-from .result import Citation
+from papers.result import Citation
 
 CITATION_URL = "http://api.citeas.org/product/"
 

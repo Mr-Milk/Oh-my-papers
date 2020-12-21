@@ -20,5 +20,9 @@ setup(name="oh-my-papers",
           "Intended Audience :: Science/Research",
       ],
       python_requires='>=3.6',
-      install_requires=['requests'],
+      install_requires=['requests', 'aiohttp'],
+      entry_points='''
+              [console_scripts]
+              papers=papers.cli
+          ''',
       )
